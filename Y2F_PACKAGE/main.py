@@ -67,6 +67,8 @@ def main_entry_point():
         Youtube_Download()
     elif selected_input == "C":
         Youtube_Conversion()
+    elif selected_input == "E":
+        sys.exit(0)
     else:
         main_entry_point()
 
