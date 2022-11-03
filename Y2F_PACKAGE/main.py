@@ -68,6 +68,8 @@ def main_entry_point():
     elif selected_input == "C":
         Youtube_Conversion()
     elif selected_input == "E":
+        gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages("clear screen")
+        gui.Graphical_User_Interface_Selector()
         sys.exit(0)
     else:
         main_entry_point()
