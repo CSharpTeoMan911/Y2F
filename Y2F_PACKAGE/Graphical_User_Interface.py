@@ -17,6 +17,8 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             selected_input = self.__Main_Menu()
         elif self.selected_graphical_user_interface == "link request menu":
             selected_input = self.__Youtube_Video_Link_Request_Sub_Menu()
+        elif self.selected_graphical_user_interface == "resolution selection menu":
+            selected_input = self.__Video_Resolution_Selection_Menu()
         elif self.selected_graphical_user_interface == "path selection menu":
             selected_input = self.__Youtube_Video_Download_Path_Sub_Menu()
         elif self.selected_graphical_user_interface == "download successful":
@@ -29,6 +31,8 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             selected_input = self.__An_Unknown_Error_Occurred()
         elif self.selected_graphical_user_interface == "wrong link":
             selected_input = self.__Wrong_Link_Error_Occurred()
+        elif self.selected_graphical_user_interface == "video downloading warning":
+            self.__Video_Downloading_Warning()
         elif self.selected_graphical_user_interface == "clear screen":
             self.__Clear_Screen()
 
@@ -85,6 +89,10 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print("[][]                                                          [][]")
             print("[][] ENTER THE LINK OF THE YOUTUBE VIDEO YOU WANT TO DOWNLOAD [][]")
             print("[][]                                                          [][]")
+            print("[][]                                                          [][]")
+            print("[][]                                                          [][]")
+            print("[][]          ENTER '_BACK' TO CANCEL THE DOWNLOAD            [][]")
+            print("[][]                                                          [][]")
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
 
             selected_input = input("\n\n[ _ ] Input: ")
@@ -102,9 +110,33 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print("[][] ENTER THE PATH WHERE THE YOUTUBE VIDEO YOU WANT TO DOWNLOAD [][]")
             print("[][] WILL BE SAVED                                               [][]")
             print("[][]                                                             [][]")
+            print("[][]                                                             [][]")
+            print("[][]                                                             [][]")
             print("[][] ENTER '_BACK' TO CANCEL THE DOWNLOAD                        [][]")
             print("[][]                                                             [][]")
             print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+
+            selected_input = input("\n\n[ _ ] Input: ")
+
+            return selected_input
+        except KeyboardInterrupt:
+            sys.exit(0)
+
+    def __Video_Resolution_Selection_Menu(self):
+        try:
+            self.__Clear_Screen()
+
+            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]                     SELECT THE VIDEO RESOLUTION                     [][]")
+            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]                                                                     [][]")
+            print("[][] ['144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p'] [][]")
+            print("[][]                                                                     [][]")
+            print("[][]                                                                     [][]")
+            print("[][]                                                                     [][]")
+            print("[][]         ENTER '_BACK' TO CANCEL THE DOWNLOAD                        [][]")
+            print("[][]                                                                     [][]")
+            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
 
             selected_input = input("\n\n[ _ ] Input: ")
 
@@ -130,7 +162,39 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print("|||||||||||||||||||||||||||||||||||||||||")
             print("|||||||||||||||||||||||||||||||||||||||||")
             print("[][]      PRESS ANY KEY TO EXIT      [][]")
+            print("|||||||||||||||||||||||||||||||||||||||||\n\n")
+
             print("|||||||||||||||||||||||||||||||||||||||||")
+            print("[][]       FFMPEG NOT INSTALLED      [][]")
+            print("|||||||||||||||||||||||||||||||||||||||||")
+            print("[][]                                 [][]")
+            print("[][]        [ ENTER COMMAND ]        [][]")
+            print("[][]                                 [][]")
+            print("[][] 'python -m pip install ffmpeg'  [][]")
+            print("[][]                                 [][]")
+            print("[][]            OR                   [][]")
+            print("[][]                                 [][]")
+            print("[][] 'python3 -m pip install ffmpeg' [][]")
+            print("|||||||||||||||||||||||||||||||||||||||||")
+            print("|||||||||||||||||||||||||||||||||||||||||")
+            print("[][]      PRESS ANY KEY TO EXIT      [][]")
+            print("|||||||||||||||||||||||||||||||||||||||||\n\n")
+
+            print("||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]       FFMPEG-PYTHON NOT INSTALLED      [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]                                        [][]")
+            print("[][]            [ ENTER COMMAND ]           [][]")
+            print("[][]                                        [][]")
+            print("[][] 'python -m pip install ffmpeg-python'  [][]")
+            print("[][]                                        [][]")
+            print("[][]            OR                          [][]")
+            print("[][]                                        [][]")
+            print("[][] 'python3 -m pip install ffmpeg-python' [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]      PRESS ANY KEY TO EXIT             [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||\n\n")
 
             selected_input = input("\n\n[ _ ] Input: ")
 
@@ -203,6 +267,21 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             selected_input = input("\n\n[ _ ] Input: ")
 
             return selected_input
+        except KeyboardInterrupt:
+            sys.exit(0)
+
+    def __Video_Downloading_Warning(self):
+        try:
+            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]      [ ! ! ! ]      WARNING     [ ! ! ! ]      [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]              VIDEO IS DOWNLOADING              [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]  [ ! ! ! ] DO NOT CLOSE THE PROGRAM [ ! ! ! ]  [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+
         except KeyboardInterrupt:
             sys.exit(0)
 
