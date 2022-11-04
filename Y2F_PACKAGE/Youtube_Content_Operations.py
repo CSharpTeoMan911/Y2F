@@ -55,6 +55,9 @@ class Operations:
                                                                             audio_path = video_audio.download(
                                                                                 max_retries=3,
                                                                                 output_path=self.chosen_path)
+
+                                                                            os.rename(audio_path, audio_path + ".mp3")
+
                                                                             return audio_path
 
                                                                         else:
