@@ -272,6 +272,8 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
 
     def __Video_Downloading_Warning(self):
         try:
+            self.__Clear_Screen()
+
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][]      [ ! ! ! ]      WARNING     [ ! ! ! ]      [][]")
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
@@ -280,7 +282,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][]  [ ! ! ! ] DO NOT CLOSE THE PROGRAM [ ! ! ! ]  [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n\n\n\n")
 
         except KeyboardInterrupt:
             sys.exit(0)
