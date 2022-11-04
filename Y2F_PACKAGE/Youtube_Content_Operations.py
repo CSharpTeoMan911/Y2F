@@ -61,10 +61,11 @@ class Operations:
                                                                             return audio_path
 
                                                                         else:
-                                                                            from ffmpeg import input
-                                                                            from ffmpeg import output
 
                                                                             if self.selected_video_resolution == "1080p":
+                                                                                from ffmpeg import input
+                                                                                from ffmpeg import output
+
                                                                                 try:
                                                                                     video_audio = youtube_object.streams.filter(
                                                                                         only_audio=True).first()
@@ -101,6 +102,9 @@ class Operations:
                                                                                 except ffmpeg.Error:
                                                                                     return "wrong path"
                                                                             elif self.selected_video_resolution == "1440p":
+                                                                                from ffmpeg import input
+                                                                                from ffmpeg import output
+
                                                                                 try:
                                                                                     video_audio = youtube_object.streams.filter(
                                                                                         only_audio=True).first()
@@ -137,6 +141,9 @@ class Operations:
                                                                                 except ffmpeg.Error:
                                                                                     return "wrong path"
                                                                             elif self.selected_video_resolution == "2160p":
+                                                                                from ffmpeg import input
+                                                                                from ffmpeg import output
+
                                                                                 try:
                                                                                     video_audio = youtube_object.streams.filter(
                                                                                         only_audio=True).first()
