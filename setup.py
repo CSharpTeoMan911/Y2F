@@ -11,7 +11,6 @@ setup(
     },
     install_requires=[
         'pytube',
-        'ffmpeg',
         'ffmpeg-python'
     ]
 )
