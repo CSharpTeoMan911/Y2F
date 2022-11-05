@@ -53,7 +53,7 @@ class Operations:
                                                                                 only_audio=self.audio_only).first()
 
                                                                             audio_path = video_audio.download(
-                                                                                max_retries=3,
+                                                                                max_retries=10,
                                                                                 output_path=self.chosen_path)
 
                                                                             os.rename(audio_path, audio_path + ".mp3")
@@ -71,7 +71,7 @@ class Operations:
                                                                                         only_audio=True).first()
 
                                                                                     audio_path = video_audio.download(
-                                                                                        max_retries=3,
+                                                                                        max_retries=10,
                                                                                         output_path=self.chosen_path,
                                                                                         filename="audio.mp3")
 
@@ -80,7 +80,7 @@ class Operations:
                                                                                         res=self.selected_video_resolution).first()
 
                                                                                     video_path = video_audio.download(
-                                                                                        max_retries=3,
+                                                                                        max_retries=10,
                                                                                         output_path=self.chosen_path)
 
                                                                                     audio = ffmpeg.input(audio_path)
@@ -110,7 +110,7 @@ class Operations:
                                                                                         only_audio=True).first()
 
                                                                                     audio_path = video_audio.download(
-                                                                                        max_retries=3,
+                                                                                        max_retries=10,
                                                                                         output_path=self.chosen_path,
                                                                                         filename="audio.mp3")
 
@@ -119,7 +119,7 @@ class Operations:
                                                                                         res=self.selected_video_resolution).first()
 
                                                                                     video_path = video_audio.download(
-                                                                                        max_retries=3,
+                                                                                        max_retries=10,
                                                                                         output_path=self.chosen_path)
 
                                                                                     audio = ffmpeg.input(audio_path)
@@ -149,7 +149,7 @@ class Operations:
                                                                                         only_audio=True).first()
 
                                                                                     audio_path = video_audio.download(
-                                                                                        max_retries=3,
+                                                                                        max_retries=10,
                                                                                         output_path=self.chosen_path,
                                                                                         filename="audio.mp3")
 
@@ -158,7 +158,7 @@ class Operations:
                                                                                         res=self.selected_video_resolution).first()
 
                                                                                     video_path = video_audio.download(
-                                                                                        max_retries=3,
+                                                                                        max_retries=10,
                                                                                         output_path=self.chosen_path)
 
                                                                                     audio = ffmpeg.input(audio_path)
@@ -186,7 +186,7 @@ class Operations:
 
                                                                                 path = video_audio.download(
                                                                                     output_path=self.chosen_path,
-                                                                                    max_retries=3)
+                                                                                    max_retries=10,)
 
                                                                                 return path
 
