@@ -130,7 +130,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print("[][]       SELECT THE VIDEO RESOLUTION      [][]")
             print("||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][]                                        [][]")
-            print("[][]         ['144p', '360p', '480p']       [][]")
+            print("[][]         ['144p', '360p', '720p']       [][]")
             print("[][]                                        [][]")
             print("[][]                                        [][]")
             print("[][]                                        [][]")
