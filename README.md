@@ -34,7 +34,7 @@ If the version of Python is not displayed, then you must add Python to the <br>
 
 [-] PIP
 
-To install PIP, open your terminal and type:  **[** *python -m pip install pip* **]**  **OR**  **[** *python3 -m pip install pip* **]**. <br>
+To install PIP, open your terminal and type:  **[** *sudo apt-get install python-pip* **]**  **OR**  **[** *sudo apt-get install python3-pip* **]**. <br>
 
 <br>
 
