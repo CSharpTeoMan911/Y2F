@@ -112,8 +112,10 @@ async def main_entry_point():
     else:
         await main_entry_point()
 
+
 def main():
     asyncio.run(main_entry_point())
+
 
 if __name__ == "__main__":
     main()

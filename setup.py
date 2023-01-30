@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'Y2F=Y2F_PACKAGE.main:main_entry_point',
+            'Y2F=Y2F_PACKAGE.main:main',
         ]
     },
     install_requires=[
