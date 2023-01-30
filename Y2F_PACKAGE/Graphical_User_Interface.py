@@ -1,6 +1,6 @@
 import os
-import platform
 import sys
+import platform
 
 
 class Graphical_User_Interfaces_For_Menus_And_Messages:
@@ -9,36 +9,36 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
     def __init__(self, init_selected_graphical_user_interface):
         self.selected_graphical_user_interface = init_selected_graphical_user_interface
 
-    def Graphical_User_Interface_Selector(self):
+    async def Graphical_User_Interface_Selector(self):
 
         selected_input = None
 
         if self.selected_graphical_user_interface == "main menu":
-            selected_input = self.__Main_Menu()
+            selected_input = await self.__Main_Menu()
         elif self.selected_graphical_user_interface == "link request menu":
-            selected_input = self.__Youtube_Video_Link_Request_Sub_Menu()
+            selected_input = await self.__Youtube_Video_Link_Request_Sub_Menu()
         elif self.selected_graphical_user_interface == "resolution selection menu":
-            selected_input = self.__Video_Resolution_Selection_Menu()
+            selected_input = await self.__Video_Resolution_Selection_Menu()
         elif self.selected_graphical_user_interface == "path selection menu":
-            selected_input = self.__Youtube_Video_Download_Path_Sub_Menu()
+            selected_input = await self.__Youtube_Video_Download_Path_Sub_Menu()
         elif self.selected_graphical_user_interface == "download successful":
-            selected_input = self.__File_Successfully_Installed_Message()
+            selected_input = await self.__File_Successfully_Installed_Message()
         elif self.selected_graphical_user_interface == "module not found":
-            selected_input = self.__Module_Not_Found_Error()
+            selected_input = await self.__Module_Not_Found_Error()
         elif self.selected_graphical_user_interface == "path not found":
-            selected_input = self.__Path_Not_Found_Error()
+            selected_input = await self.__Path_Not_Found_Error()
         elif self.selected_graphical_user_interface == "unknown error":
-            selected_input = self.__An_Unknown_Error_Occurred()
+            selected_input = await self.__An_Unknown_Error_Occurred()
         elif self.selected_graphical_user_interface == "wrong link":
-            selected_input = self.__Wrong_Link_Error_Occurred()
+            selected_input = await self.__Wrong_Link_Error_Occurred()
         elif self.selected_graphical_user_interface == "video downloading warning":
-            self.__Video_Downloading_Warning()
+            await self.__Video_Downloading_Warning()
         elif self.selected_graphical_user_interface == "clear screen":
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
         return selected_input
 
-    def __Clear_Screen(self):
+    async def __Clear_Screen(self):
         detected_operating_system = platform.system()
 
         if detected_operating_system == "Windows":
@@ -46,9 +46,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         else:
             os.system("clear")
 
-    def __Main_Menu(self):
+    async def __Main_Menu(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][]                                                                      [][]")
@@ -81,9 +81,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __Youtube_Video_Link_Request_Sub_Menu(self):
+    async def __Youtube_Video_Link_Request_Sub_Menu(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][]                                                          [][]")
@@ -101,9 +101,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __Youtube_Video_Download_Path_Sub_Menu(self):
+    async def __Youtube_Video_Download_Path_Sub_Menu(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][]                                                             [][]")
@@ -122,21 +122,21 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __Video_Resolution_Selection_Menu(self):
+    async def __Video_Resolution_Selection_Menu(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
-            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                     SELECT THE VIDEO RESOLUTION                     [][]")
-            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                                                                     [][]")
-            print("[][] ['144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p'] [][]")
-            print("[][]                                                                     [][]")
-            print("[][]                                                                     [][]")
-            print("[][]                                                                     [][]")
-            print("[][]         ENTER '_BACK' TO CANCEL THE DOWNLOAD                        [][]")
-            print("[][]                                                                     [][]")
-            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]       SELECT THE VIDEO RESOLUTION      [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||")
+            print("[][]                                        [][]")
+            print("[][]         ['144p', '360p', '480p']       [][]")
+            print("[][]                                        [][]")
+            print("[][]                                        [][]")
+            print("[][]                                        [][]")
+            print("[][]  ENTER '_BACK' TO CANCEL THE DOWNLOAD  [][]")
+            print("[][]                                        [][]")
+            print("||||||||||||||||||||||||||||||||||||||||||||||||")
 
             selected_input = input("\n\n[ _ ] Input: ")
 
@@ -144,9 +144,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __Module_Not_Found_Error(self):
+    async def __Module_Not_Found_Error(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("|||||||||||||||||||||||||||||||||||||||||")
             print("[][]       PYTUBE NOT INSTALLED      [][]")
@@ -202,9 +202,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __Path_Not_Found_Error(self):
+    async def __Path_Not_Found_Error(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][] PATH NOT FOUND. YOU HAVE ENTERED THE WRONG PATH [][]")
@@ -219,9 +219,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __An_Unknown_Error_Occurred(self):
+    async def __An_Unknown_Error_Occurred(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("|||||||||||||||||||||||||||||||")
             print("[][]     UNKNOWN ERROR     [][]")
@@ -236,9 +236,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __Wrong_Link_Error_Occurred(self):
+    async def __Wrong_Link_Error_Occurred(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][] YOU HAVE ENTERED AN INVALID YOUTUBE LINK [][]")
@@ -253,9 +253,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __File_Successfully_Installed_Message(self):
+    async def __File_Successfully_Installed_Message(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("|||||||||||||||||||||||||||||||||||||")
             print("[][] FILE SUCCESSFULLY INSTALLED [][]")
@@ -270,9 +270,9 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    def __Video_Downloading_Warning(self):
+    async def __Video_Downloading_Warning(self):
         try:
-            self.__Clear_Screen()
+            await self.__Clear_Screen()
 
             print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
             print("[][]      [ ! ! ! ]      WARNING     [ ! ! ! ]      [][]")

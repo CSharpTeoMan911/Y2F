@@ -15,16 +15,16 @@ class Operations:
         self.youtube_link = init_youtube_link
         self.selected_video_resolution = init_selected_video_resolution
 
-    def Operation_Selection(self):
+    async def Operation_Selection(self):
         if self.chosen_operation == "youtube video conversion":
             self.audio_only = True
         else:
             self.audio_only = False
 
-        download_result = self.__Youtube_Download()
+        download_result = await self.__Youtube_Download()
         return download_result
 
-    def __Youtube_Download(self):
+    async def __Youtube_Download(self):
         try:
             import pytube.exceptions
             try:
@@ -59,131 +59,34 @@ class Operations:
                                                                             return audio_path
 
                                                                         else:
+                                                                            resolutions = []
+                                                                            available_resolutions = ["144p", "360p", "720p"]
 
-                                                                            if self.selected_video_resolution == "1080p":
-                                                                                import ffmpeg
+                                                                            for stream in youtube_object.streams.order_by("resolution"):
+                                                                                for index in range(0, len(available_resolutions)):
+                                                                                    if available_resolutions[index] == stream.resolution:
+                                                                                        exist = resolutions.count(stream.resolution)
+                                                                                        if exist == 0:
+                                                                                            resolutions.append(stream.resolution)
+                                                                                        break
 
-                                                                                try:
-                                                                                    video_audio = youtube_object.streams.filter(
-                                                                                        only_audio=True).first()
+                                                                            maximum_available_resolution = resolutions[len(resolutions) - 1]
 
-                                                                                    audio_path = video_audio.download(
-                                                                                        max_retries=10,
-                                                                                        output_path=self.chosen_path,
-                                                                                        filename="audio.mp3")
+                                                                            try:
+                                                                                maximum_available_resolution = resolutions[resolutions.index(self.selected_video_resolution)]
+                                                                            except ValueError:
+                                                                                pass
 
-                                                                                    video_audio = youtube_object.streams.filter(
-                                                                                        only_video=True,
-                                                                                        res=self.selected_video_resolution).first()
+                                                                            video_audio = youtube_object.streams.filter(
+                                                                                only_audio=self.audio_only,
+                                                                                res=maximum_available_resolution).first()
 
-                                                                                    video_path = video_audio.download(
-                                                                                        max_retries=10,
-                                                                                        output_path=self.chosen_path)
+                                                                            path = video_audio.download(
+                                                                                output_path=self.chosen_path,
+                                                                                max_retries=10, )
 
-                                                                                    audio = ffmpeg.input(audio_path)
+                                                                            return path
 
-                                                                                    video = ffmpeg.input(video_path)
-
-                                                                                    path = ffmpeg.output(audio,
-                                                                                                         video,
-                                                                                                         video_path + "video.mp4")
-
-                                                                                    ffmpeg.run(path,
-                                                                                               overwrite_output=True)
-
-                                                                                    os.remove(audio_path)
-                                                                                    os.remove(video_path)
-
-                                                                                    return video_path
-
-                                                                                except ffmpeg.Error:
-                                                                                    return "wrong path"
-                                                                            elif self.selected_video_resolution == "1440p":
-                                                                                import ffmpeg
-
-                                                                                try:
-                                                                                    video_audio = youtube_object.streams.filter(
-                                                                                        only_audio=True).first()
-
-                                                                                    audio_path = video_audio.download(
-                                                                                        max_retries=10,
-                                                                                        output_path=self.chosen_path,
-                                                                                        filename="audio.mp3")
-
-                                                                                    video_audio = youtube_object.streams.filter(
-                                                                                        only_video=True,
-                                                                                        res=self.selected_video_resolution).first()
-
-                                                                                    video_path = video_audio.download(
-                                                                                        max_retries=10,
-                                                                                        output_path=self.chosen_path)
-
-                                                                                    audio = ffmpeg.input(audio_path)
-
-                                                                                    video = ffmpeg.input(video_path)
-
-                                                                                    path = ffmpeg.output(audio,
-                                                                                                         video,
-                                                                                                         video_path + "video.mp4")
-
-                                                                                    ffmpeg.run(path,
-                                                                                               overwrite_output=True)
-
-                                                                                    os.remove(audio_path)
-                                                                                    os.remove(video_path)
-
-                                                                                    return video_path
-
-                                                                                except ffmpeg.Error:
-                                                                                    return "wrong path"
-                                                                            elif self.selected_video_resolution == "2160p":
-                                                                                import ffmpeg
-
-                                                                                try:
-                                                                                    video_audio = youtube_object.streams.filter(
-                                                                                        only_audio=True).first()
-
-                                                                                    audio_path = video_audio.download(
-                                                                                        max_retries=10,
-                                                                                        output_path=self.chosen_path,
-                                                                                        filename="audio.mp3")
-
-                                                                                    video_audio = youtube_object.streams.filter(
-                                                                                        only_video=True,
-                                                                                        res=self.selected_video_resolution).first()
-
-                                                                                    video_path = video_audio.download(
-                                                                                        max_retries=10,
-                                                                                        output_path=self.chosen_path)
-
-                                                                                    audio = ffmpeg.input(audio_path)
-
-                                                                                    video = ffmpeg.input(video_path)
-
-                                                                                    path = ffmpeg.output(audio,
-                                                                                                         video,
-                                                                                                         video_path + "video.mp4")
-
-                                                                                    ffmpeg.run(path,
-                                                                                               overwrite_output=True)
-
-                                                                                    os.remove(audio_path)
-                                                                                    os.remove(video_path)
-
-                                                                                    return video_path
-
-                                                                                except ffmpeg.Error:
-                                                                                    return "wrong path"
-                                                                            else:
-                                                                                video_audio = youtube_object.streams.filter(
-                                                                                    only_audio=self.audio_only,
-                                                                                    res=self.selected_video_resolution).first()
-
-                                                                                path = video_audio.download(
-                                                                                    output_path=self.chosen_path,
-                                                                                    max_retries=10,)
-
-                                                                                return path
 
 
                                                                     except pytube.exceptions.RecordingUnavailable:
