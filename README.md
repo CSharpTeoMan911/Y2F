@@ -7,7 +7,7 @@
 
 ## About
 ____________________________
-Y2F is a cross-platform console application that allow users to download YouTube videos, or convert and download them in an audio format. Y2F was tested on Ubuntu, Debian, and Windows 10.
+Y2F is a cross-platform console application that allow users to download and/or convert YouTube videos. Y2F was tested on Ubuntu, Debian, and Windows 10.
 
 <br>
 <br>
