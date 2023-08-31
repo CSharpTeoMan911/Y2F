@@ -2,6 +2,9 @@ import os
 import sys
 
 
+#########################################
+# CLASS THAT MANAGES YOUTUBE OPERATIONS #
+#########################################
 class Operations:
     audio_only = False
     chosen_operation = None
@@ -15,6 +18,9 @@ class Operations:
         self.youtube_link = init_youtube_link
         self.selected_video_resolution = init_selected_video_resolution
 
+    ########################################################################
+    # SELECTS THE YOUTUBE OPERATION ( MP4 TO M3 DOWNLOAD OR MP4 DOWNLOAD ) #
+    ########################################################################
     async def Operation_Selection(self):
         if self.chosen_operation == "youtube video conversion":
             self.audio_only = True
@@ -24,6 +30,9 @@ class Operations:
         download_result = await self.__Youtube_Download()
         return download_result
 
+    #######################################################################################
+    # DOWNLOAD THE MP4 VIDEO OR AUDIO FILE BINARY DATA AND STORE IT IN THE OS FILE SYSTEM #
+    #######################################################################################
     async def __Youtube_Download(self):
         try:
             import pytube.exceptions
@@ -89,35 +98,50 @@ class Operations:
 
 
 
-                                                                    except pytube.exceptions.RecordingUnavailable:
+                                                                    except pytube.exceptions.RecordingUnavailable as e:
+                                                                        #print(e.message)
                                                                         return "internal error"
-                                                                except pytube.exceptions.Pattern:
+                                                                except pytube.exceptions as e:
+                                                                    #print(e.message)
                                                                     return "internal error"
-                                                            except pytube.exceptions.MembersOnly:
+                                                            except pytube.exceptions.MembersOnly as e:
+                                                                #print(e.message)
                                                                 return "internal error"
-                                                        except pytube.exceptions.MaxRetriesExceeded:
+                                                        except pytube.exceptions.MaxRetriesExceeded as e:
+                                                            #print(e.message)
                                                             return "internal error"
-                                                    except pytube.exceptions.LiveStreamError:
+                                                    except pytube.exceptions.LiveStreamError as e:
+                                                        #print(e.message)
                                                         return "internal error"
-                                                except pytube.exceptions.HTMLParseError:
+                                                except pytube.exceptions.HTMLParseError as e:
+                                                    #print(e.message)
                                                     return "internal error"
-                                            except pytube.exceptions.AgeRestrictedError:
+                                            except pytube.exceptions.AgeRestrictedError as e:
+                                                #print(e.message)
                                                 return "internal error"
-                                        except pytube.exceptions.VideoPrivate:
+                                        except pytube.exceptions.VideoPrivate as e:
+                                            #print(e.message)
                                             return "internal error"
-                                    except pytube.exceptions.ExtractError:
+                                    except pytube.exceptions.ExtractError as e:
+                                        #print(e.message)
                                         return "internal error"
-                                except pytube.exceptions.PytubeError:
+                                except pytube.exceptions.PytubeError as e:
+                                    #print(e.message)
                                     return "internal error"
-                            except TypeError:
+                            except TypeError as e:
+                                #print(e.message)
                                 return "internal error"
-                        except ValueError:
+                        except ValueError as e:
+                            #print(e.message)
                             return "internal error"
-                    except FileNotFoundError:
+                    except FileNotFoundError as e:
+                        #print(e.message)
                         return "wrong path"
-                except KeyboardInterrupt:
+                except KeyboardInterrupt  as e:
+                    #print(e.message)
                     sys.exit(0)
-            except pytube.exceptions.RegexMatchError:
+            except pytube.exceptions.RegexMatchError as e:
+                #print(e.message)
                 return "wrong link"
-        except ModuleNotFoundError:
+        except ModuleNotFoundError as e:
             return "pytube missing"

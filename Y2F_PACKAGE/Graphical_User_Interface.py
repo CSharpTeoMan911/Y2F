@@ -3,6 +3,9 @@ import sys
 import platform
 
 
+##########################################################
+# CLASS THAT STORES AND MANAGES GRAPHICAL USER INTERFACE #
+##########################################################
 class Graphical_User_Interfaces_For_Menus_And_Messages:
     selected_graphical_user_interface = None
 
