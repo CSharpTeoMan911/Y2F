@@ -20,8 +20,12 @@ async def Youtube_Download():
 
     selected_resolution = await Video_Resolution_Selection()
 
+    if selected_resolution == "_BACK":
+        await main_entry_point()
+
     gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages("video downloading warning")
     await gui.Graphical_User_Interface_Selector()
+
 
     file_download = Youtube_Content_Operations.Operations("youtube video download", youtube_link, selected_path, selected_resolution)
     file_download_result = await file_download.Operation_Selection()
