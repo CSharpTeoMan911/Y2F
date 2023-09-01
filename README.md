@@ -49,10 +49,10 @@ If the version of PIP is not displayed, then you must add PIP to the <br>
 ## Installation
 ___________________________
 
-Enter the command on Windows:  &nbsp; **pip install git+https://github.com/CSharpTeoMan911/Y2F** 
+Enter the command on Windows:  &nbsp; **python -m pip install Y2F** 
 <br/>
 <br/>
-Enter the command on Linux:  &nbsp; **sudo pip install git+https://github.com/CSharpTeoMan911/Y2F**
+Enter the command on Linux:  &nbsp; **pip install Y2F**
 
 <br>
 <br>
