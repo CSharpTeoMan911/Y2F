@@ -13,7 +13,6 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         self.selected_graphical_user_interface = init_selected_graphical_user_interface
 
     async def Graphical_User_Interface_Selector(self):
-
         selected_input = None
 
         if self.selected_graphical_user_interface == "main menu":
@@ -36,6 +35,8 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             selected_input = await self.__Wrong_Link_Error_Occurred()
         elif self.selected_graphical_user_interface == "video downloading warning":
             await self.__Video_Downloading_Warning()
+        elif self.selected_graphical_user_interface == "age restricted video":
+            await self.__Age_Restriction_Error()
         elif self.selected_graphical_user_interface == "clear screen":
             await self.__Clear_Screen()
 
@@ -53,30 +54,78 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         try:
             await self.__Clear_Screen()
 
-            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                                                                      [][]")
-            print("[][]   .???! .7??7 .!JYYJ7:  ^??????7     .~7??JJJJJJJJJJJJJJJJJJ??7~.    [][]")
-            print("[][]    G@@@:7@@@J:B@@BP@@@J Y@@@@@@#   ^5PPPPPPPPPPPPPPPPPPPPPPPPPP5^    [][]")
-            print("[][]    :&@@JG@@G ?@@@~ &@@@.J@@@B:::   JP555555555PYYPPPPP555555555PJ    [][]")
-            print("[][]     ?@@&@@@^ :~~^:G@@@5 J@@@#77^   YP55555555PP~ ^!J5PPP5555555PY    [][]")
-            print("[][]      G@@@@J     ^B@@@Y  J@@@@@@Y  .5P55555555PP^    .^!YP555555PY.   [][]")
-            print("[][]      ~@@@#.    7&@@#!   J@@@B::.  .5P55555555PP^    .^!YP555555PY.   [][]")
-            print("[][]      ^@@@B   .Y@@@G^.:. J@@@B      YP55555555PP~ ^!J5PPP5555555PY    [][]")
-            print("[][]      ^@@@B   ?@@@@&&&@P Y@@@B      JP555555555PYYPPPPP555555555PJ    [][]")
-            print("[][]      ^@@@B   ?@@@@&&&@P Y@@@B      ^5PPPPPPPPPPPPPPPPPPPPPPPPPP5^    [][]")
-            print("[][]      .~!!~   :!~~~!!!!^ :!~!~       .~7??JJJJJJJJJJJJJJJJJJ??7~.     [][]")
-            print("[][]                                                                      [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                                                                      [][]")
-            print("[][]  ENTER 'C' TO DOWNLOAD A YOUTUBE VIDEO AS AUDIO                      [][]")
-            print("[][]                                                                      [][]")
-            print("[][]  ENTER 'D' TO DOWNLOAD A VIDEO TO AS VIDEO                           [][]")
-            print("[][]                                                                      [][]")
-            print("[][]  ENTER 'E' TO EXIT                                                   [][]")
-            print("[][]                                                                      [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print(
+                "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            )
+            print(
+                "[][]                                                                      [][]"
+            )
+            print(
+                "[][]   .???! .7??7 .!JYYJ7:  ^??????7     .~7??JJJJJJJJJJJJJJJJJJ??7~.    [][]"
+            )
+            print(
+                "[][]    G@@@:7@@@J:B@@BP@@@J Y@@@@@@#   ^5PPPPPPPPPPPPPPPPPPPPPPPPPP5^    [][]"
+            )
+            print(
+                "[][]    :&@@JG@@G ?@@@~ &@@@.J@@@B:::   JP555555555PYYPPPPP555555555PJ    [][]"
+            )
+            print(
+                "[][]     ?@@&@@@^ :~~^:G@@@5 J@@@#77^   YP55555555PP~ ^!J5PPP5555555PY    [][]"
+            )
+            print(
+                "[][]      G@@@@J     ^B@@@Y  J@@@@@@Y  .5P55555555PP^    .^!YP555555PY.   [][]"
+            )
+            print(
+                "[][]      ~@@@#.    7&@@#!   J@@@B::.  .5P55555555PP^    .^!YP555555PY.   [][]"
+            )
+            print(
+                "[][]      ^@@@B   .Y@@@G^.:. J@@@B      YP55555555PP~ ^!J5PPP5555555PY    [][]"
+            )
+            print(
+                "[][]      ^@@@B   ?@@@@&&&@P Y@@@B      JP555555555PYYPPPPP555555555PJ    [][]"
+            )
+            print(
+                "[][]      ^@@@B   ?@@@@&&&@P Y@@@B      ^5PPPPPPPPPPPPPPPPPPPPPPPPPP5^    [][]"
+            )
+            print(
+                "[][]      .~!!~   :!~~~!!!!^ :!~!~       .~7??JJJJJJJJJJJJJJJJJJ??7~.     [][]"
+            )
+            print(
+                "[][]                                                                      [][]"
+            )
+            print(
+                "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            )
+            print(
+                "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            )
+            print(
+                "[][]                                                                      [][]"
+            )
+            print(
+                "[][]  ENTER 'C' TO DOWNLOAD A YOUTUBE VIDEO AS AUDIO                      [][]"
+            )
+            print(
+                "[][]                                                                      [][]"
+            )
+            print(
+                "[][]  ENTER 'D' TO DOWNLOAD A VIDEO TO AS VIDEO                           [][]"
+            )
+            print(
+                "[][]                                                                      [][]"
+            )
+            print(
+                "[][]  ENTER 'E' TO EXIT                                                   [][]"
+            )
+            print(
+                "[][]                                                                      [][]"
+            )
+            print(
+                "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            )
+            print(
+                "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            )
 
             selected_input = input("\n\n[ _ ] Input: ")
 
@@ -108,16 +157,36 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         try:
             await self.__Clear_Screen()
 
-            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                                                             [][]")
-            print("[][] ENTER THE PATH WHERE THE YOUTUBE VIDEO YOU WANT TO DOWNLOAD [][]")
-            print("[][] WILL BE SAVED                                               [][]")
-            print("[][]                                                             [][]")
-            print("[][]                                                             [][]")
-            print("[][]                                                             [][]")
-            print("[][] ENTER '_BACK' TO CANCEL THE DOWNLOAD                        [][]")
-            print("[][]                                                             [][]")
-            print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||")
+            print(
+                "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            )
+            print(
+                "[][]                                                             [][]"
+            )
+            print(
+                "[][] ENTER THE PATH WHERE THE YOUTUBE VIDEO YOU WANT TO DOWNLOAD [][]"
+            )
+            print(
+                "[][] WILL BE SAVED                                               [][]"
+            )
+            print(
+                "[][]                                                             [][]"
+            )
+            print(
+                "[][]                                                             [][]"
+            )
+            print(
+                "[][]                                                             [][]"
+            )
+            print(
+                "[][] ENTER '_BACK' TO CANCEL THE DOWNLOAD                        [][]"
+            )
+            print(
+                "[][]                                                             [][]"
+            )
+            print(
+                "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+            )
 
             selected_input = input("\n\n[ _ ] Input: ")
 
@@ -222,6 +291,23 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
+    async def __Age_Restriction_Error(self):
+        try:
+            await self.__Clear_Screen()
+
+            print("|||||||||||||||||||||||||||||||||||||")
+            print("[][] THE VIDEO IS AGE RESTRICTED [][]")
+            print("|||||||||||||||||||||||||||||||||||||")
+            print("|||||||||||||||||||||||||||||||||||||")
+            print("[][]   PRESS ANY KEY TO EXIT     [][]")
+            print("|||||||||||||||||||||||||||||||||||||")
+
+            selected_input = input("\n\n[ _ ] Input: ")
+
+            return selected_input
+        except KeyboardInterrupt:
+            sys.exit(0)
+
     async def __An_Unknown_Error_Occurred(self):
         try:
             await self.__Clear_Screen()
@@ -289,5 +375,3 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
 
         except KeyboardInterrupt:
             sys.exit(0)
-
-

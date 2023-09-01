@@ -1,8 +1,8 @@
 import sys
 import asyncio
+import Graphical_User_Interface, Youtube_Content_Operations
 
 from Y2F_PACKAGE import Graphical_User_Interface, Youtube_Content_Operations
-
 
 ####################################
 # YOUTUBE VIDEO DOWNLOAD INTERFACE #
@@ -96,6 +96,8 @@ async def Message_Displayer(gui_message):
                 selected_gui = "unknown error"
             elif gui_message == "wrong link":
                 selected_gui = "wrong link"
+            elif gui_message == "age restricted video":
+                selected_gui = "age restricted video"
             else:
                 selected_gui = "download successful"
 
