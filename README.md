@@ -64,5 +64,5 @@ In order to use Y2F open your terminal and type **Y2F**. After Y2F is opened, <b
 select one of the options and then press enter. When prompted to enter the <br>
 youtube link, copy the link, paste it and then press enter. When prompted to <br> 
 enter the **PATH WHERE THE FILE WILL BE SAVED** enter the directory where <br>
-you want the file to be saved (e.g.  C\Users\John\Desktop).
+you want the file to be saved (e.g.  C:\Users\John\Desktop).
 
