@@ -23,7 +23,7 @@ To install Python go to this link: https://www.python.org/downloads/
 
 <br>
 
-After the installation, open your terminal and type:   **python --version**  &nbsp; *or* &nbsp;  **python3 --version**. <br>
+After the installation, open your terminal and type:   **python** **--version**  &nbsp; *or* &nbsp;  **python3 --version**. <br>
 If the version of Python is not displayed, then you must add Python to the <br>
 'Environment Variables'.
 
