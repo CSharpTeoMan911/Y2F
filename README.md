@@ -7,7 +7,7 @@
 
 ## About
 ____________________________
-Y2F is a cross-platform console application that allow users to download and/or convert YouTube videos. Y2F was tested on Ubuntu, Debian, and Windows 10.
+Y2F is a cross-platform command line utility that allow users to download YouTube videos in a MP4 or MP3 format. Y2F was tested on Ubuntu, Debian, and Windows 10.
 
 <br>
 <br>
@@ -15,7 +15,7 @@ Y2F is a cross-platform console application that allow users to download and/or 
 ## Requirements
 ___________________________
 
-[-] Python
+### [-] Python
 
 <br>
 
@@ -23,7 +23,7 @@ To install Python go to this link: https://www.python.org/downloads/
 
 <br>
 
-After the installation, open your terminal and type:  **[** *python --version* **]**  **OR**  **[** *python3 --version* **]**. <br>
+After the installation, open your terminal and type:   **python --version**  &nbsp; *or* &nbsp;  **python3 --version**. <br>
 If the version of Python is not displayed, then you must add Python to the <br>
 'Environment Variables'.
 
@@ -32,13 +32,13 @@ If the version of Python is not displayed, then you must add Python to the <br>
 <br>
 <br>
 
-[-] PIP
+### [-] PIP
 
-To install PIP, open your terminal and type:  **[** *sudo apt-get install python-pip* **]**  **OR**  **[** *sudo apt-get install python3-pip* **]**. <br>
+To install PIP, open your terminal and type:  **sudo apt-get install python-pip** &nbsp; *or* &nbsp; **sudo apt-get install python3-pip**. <br>
 
 <br>
 
-After the installation, open your terminal and type:  **[** *pip --version* **]** . <br>
+After the installation, open your terminal and type:  ** *pip --version* ** . <br>
 If the version of PIP is not displayed, then you must add PIP to the <br>
 'Environment Variables'.
 
@@ -49,7 +49,10 @@ If the version of PIP is not displayed, then you must add PIP to the <br>
 ## Installation
 ___________________________
 
-Enter the command **[** *pip install git+https://github.com/CSharpTeoMan911/Y2F* **]**
+Enter the command on Windows:  &nbsp; **pip install git+https://github.com/CSharpTeoMan911/Y2F** 
+<br/>
+<br/>
+Enter the command on Linux:  &nbsp; **sudo pip install git+https://github.com/CSharpTeoMan911/Y2F**
 
 <br>
 <br>
