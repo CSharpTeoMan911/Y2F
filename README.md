@@ -38,7 +38,7 @@ To install PIP, open your terminal and type:  **sudo apt-get install python-pip*
 
 <br>
 
-After the installation, open your terminal and type:  ** *pip --version* ** . <br>
+After the installation, open your terminal and type:  **pip** **--version** . <br>
 If the version of PIP is not displayed, then you must add PIP to the <br>
 'Environment Variables'.
 
