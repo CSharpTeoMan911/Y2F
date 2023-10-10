@@ -24,9 +24,9 @@ class Operations:
         self.youtube_link = init_youtube_link
         self.selected_video_resolution = init_selected_video_resolution
 
-    ########################################################################
-    # SELECTS THE YOUTUBE OPERATION ( MP4 TO M3 DOWNLOAD OR MP4 DOWNLOAD ) #
-    ########################################################################
+    #########################################################################
+    # SELECTS THE YOUTUBE OPERATION ( MP4 TO MP3 DOWNLOAD OR MP4 DOWNLOAD ) #
+    #########################################################################
     async def Operation_Selection(self):
         if self.chosen_operation == "youtube video conversion":
             self.audio_only = True
@@ -42,7 +42,6 @@ class Operations:
     async def __Youtube_Download(self):
         try:
             import pytube.exceptions
-
             try:
                 try:
                     try:
@@ -62,7 +61,7 @@ class Operations:
                                                                     )
 
                                                                     youtube_object = YouTube(
-                                                                        self.youtube_link
+                                                                        self.youtube_link, use_oauth=False, allow_oauth_cache=False
                                                                     )
 
                                                                     if (
@@ -148,6 +147,7 @@ class Operations:
                                                                         video_audio = youtube_object.streams.filter(
                                                                             only_audio=self.audio_only,
                                                                             res=maximum_available_resolution,
+                                                                            progressive=True
                                                                         ).first()
 
                                                                         path = video_audio.download(
