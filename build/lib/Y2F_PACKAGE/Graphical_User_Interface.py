@@ -103,13 +103,13 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
                 "[][]                                                                      [][]"
             )
             print(
-                "[][]  ENTER 'C' TO DOWNLOAD A YOUTUBE VIDEO AS AUDIO                      [][]"
+                "[][]  ENTER 'C' TO CONVERT A YOUTUBE VIDEO IN MP3 FORMAT                  [][]"
             )
             print(
                 "[][]                                                                      [][]"
             )
             print(
-                "[][]  ENTER 'D' TO DOWNLOAD A VIDEO TO AS VIDEO                           [][]"
+                "[][]  ENTER 'D' TO DOWNLOAD A VIDEO IN MP4 FORMAT                         [][]"
             )
             print(
                 "[][]                                                                      [][]"
@@ -236,38 +236,6 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print("[][]      PRESS ANY KEY TO EXIT      [][]")
             print("|||||||||||||||||||||||||||||||||||||||||\n\n")
 
-            print("|||||||||||||||||||||||||||||||||||||||||")
-            print("[][]       FFMPEG NOT INSTALLED      [][]")
-            print("|||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                                 [][]")
-            print("[][]        [ ENTER COMMAND ]        [][]")
-            print("[][]                                 [][]")
-            print("[][] 'python -m pip install ffmpeg'  [][]")
-            print("[][]                                 [][]")
-            print("[][]            OR                   [][]")
-            print("[][]                                 [][]")
-            print("[][] 'python3 -m pip install ffmpeg' [][]")
-            print("|||||||||||||||||||||||||||||||||||||||||")
-            print("|||||||||||||||||||||||||||||||||||||||||")
-            print("[][]      PRESS ANY KEY TO EXIT      [][]")
-            print("|||||||||||||||||||||||||||||||||||||||||\n\n")
-
-            print("||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]       FFMPEG-PYTHON NOT INSTALLED      [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                                        [][]")
-            print("[][]            [ ENTER COMMAND ]           [][]")
-            print("[][]                                        [][]")
-            print("[][] 'python -m pip install ffmpeg-python'  [][]")
-            print("[][]                                        [][]")
-            print("[][]            OR                          [][]")
-            print("[][]                                        [][]")
-            print("[][] 'python3 -m pip install ffmpeg-python' [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]      PRESS ANY KEY TO EXIT             [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||\n\n")
-
             selected_input = input("\n\n[ _ ] Input: ")
 
             return selected_input
@@ -350,7 +318,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print("[][] FILE SUCCESSFULLY INSTALLED [][]")
             print("|||||||||||||||||||||||||||||||||||||")
             print("|||||||||||||||||||||||||||||||||||||")
-            print("[][]     PRESS ANY KEY TO EXIT   [][]")
+            print("[][]    PRESS ANY KEY TO EXIT    [][]")
             print("|||||||||||||||||||||||||||||||||||||")
 
             selected_input = input("\n\n[ _ ] Input: ")
