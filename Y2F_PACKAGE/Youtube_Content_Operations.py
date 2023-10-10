@@ -13,11 +13,11 @@ class Operations:
     selected_video_resolution = None
 
     def __init__(
-        self,
-        init_chosen_operation,
-        init_youtube_link,
-        init_chosen_path,
-        init_selected_video_resolution,
+            self,
+            init_chosen_operation,
+            init_youtube_link,
+            init_chosen_path,
+            init_selected_video_resolution,
     ):
         self.chosen_operation = init_chosen_operation
         self.chosen_path = init_chosen_path
@@ -61,12 +61,13 @@ class Operations:
                                                                     )
 
                                                                     youtube_object = YouTube(
-                                                                        self.youtube_link, use_oauth=False, allow_oauth_cache=False
+                                                                        self.youtube_link, use_oauth=False,
+                                                                        allow_oauth_cache=False
                                                                     )
 
                                                                     if (
-                                                                        self.selected_video_resolution
-                                                                        is None
+                                                                            self.selected_video_resolution
+                                                                            is None
                                                                     ):
                                                                         video_audio = youtube_object.streams.filter(
                                                                             only_audio=self.audio_only
@@ -96,12 +97,12 @@ class Operations:
                                                                         ]
 
                                                                         for (
-                                                                            stream
+                                                                                stream
                                                                         ) in youtube_object.streams.order_by(
                                                                             "resolution"
                                                                         ):
                                                                             for (
-                                                                                index
+                                                                                    index
                                                                             ) in range(
                                                                                 0,
                                                                                 len(
@@ -109,17 +110,17 @@ class Operations:
                                                                                 ),
                                                                             ):
                                                                                 if (
-                                                                                    available_resolutions[
-                                                                                        index
-                                                                                    ]
-                                                                                    == stream.resolution
+                                                                                        available_resolutions[
+                                                                                            index
+                                                                                        ]
+                                                                                        == stream.resolution
                                                                                 ):
                                                                                     exist = resolutions.count(
                                                                                         stream.resolution
                                                                                     )
                                                                                     if (
-                                                                                        exist
-                                                                                        == 0
+                                                                                            exist
+                                                                                            == 0
                                                                                     ):
                                                                                         resolutions.append(
                                                                                             stream.resolution
@@ -131,7 +132,7 @@ class Operations:
                                                                                 resolutions
                                                                             )
                                                                             - 1
-                                                                        ]
+                                                                            ]
 
                                                                         try:
                                                                             maximum_available_resolution = resolutions[
@@ -140,7 +141,7 @@ class Operations:
                                                                                 )
                                                                             ]
                                                                         except (
-                                                                            ValueError
+                                                                                ValueError
                                                                         ):
                                                                             pass
 
@@ -157,61 +158,33 @@ class Operations:
 
                                                                         return path
 
-                                                                except (
-                                                                    pytube.exceptions.RecordingUnavailable
-                                                                ) as e:
-                                                                    # print(e.message)
-                                                                    return (
-                                                                        "internal error"
-                                                                    )
-                                                            except (
-                                                                pytube.exceptions.MembersOnly
-                                                            ) as e:
-                                                                # print(e.message)
+                                                                except pytube.exceptions.RecordingUnavailable:
+                                                                    return "internal error"
+                                                            except pytube.exceptions.MembersOnly:
                                                                 return "internal error"
-                                                        except (
-                                                            pytube.exceptions.MaxRetriesExceeded
-                                                        ) as e:
-                                                            # print(e.message)
+                                                        except pytube.exceptions.MaxRetriesExceeded:
                                                             return "internal error"
-                                                    except (
-                                                        pytube.exceptions.LiveStreamError
-                                                    ) as e:
-                                                        # print(e.message)
+                                                    except pytube.exceptions.LiveStreamError:
                                                         return "internal error"
-                                                except (
-                                                    pytube.exceptions.HTMLParseError
-                                                ) as e:
-                                                    # print(e.message)
+                                                except pytube.exceptions.HTMLParseError:
                                                     return "internal error"
-                                            except (
-                                                pytube.exceptions.AgeRestrictedError
-                                            ) as e:
-                                                # print(e.message)
+                                            except pytube.exceptions.AgeRestrictedError:
                                                 return "age restricted video"
-                                        except pytube.exceptions.VideoPrivate as e:
-                                            # print(e.message)
+                                        except pytube.exceptions.VideoPrivate:
                                             return "internal error"
-                                    except pytube.exceptions.ExtractError as e:
-                                        # print(e.message)
+                                    except pytube.exceptions.ExtractError:
                                         return "internal error"
-                                except pytube.exceptions.PytubeError as e:
-                                    # print(e.message)
+                                except pytube.exceptions.PytubeError:
                                     return "internal error"
-                            except TypeError as e:
-                                # print(e.message)
+                            except TypeError:
                                 return "internal error"
-                        except ValueError as e:
-                            # print(e.message)
+                        except ValueError:
                             return "internal error"
-                    except FileNotFoundError as e:
-                        # print(e.message)
+                    except FileNotFoundError:
                         return "wrong path"
-                except KeyboardInterrupt as e:
-                    # print(e.message)
+                except KeyboardInterrupt:
                     sys.exit(0)
-            except pytube.exceptions.RegexMatchError as e:
-                # print(e.message)
+            except pytube.exceptions.RegexMatchError:
                 return "wrong link"
-        except ModuleNotFoundError as e:
+        except ModuleNotFoundError:
             return "pytube missing"
