@@ -19,16 +19,10 @@ async def Youtube_Download():
     if selected_path.lower() == "_back":
         await main_entry_point()
 
-    selected_resolution = await Video_Resolution_Selection()
-
-    if selected_resolution == "_back":
-        await main_entry_point()
-
     gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages("video downloading warning")
     await gui.Graphical_User_Interface_Selector()
 
-    file_download = Youtube_Content_Operations.Operations("youtube video download", youtube_link, selected_path,
-                                                          selected_resolution)
+    file_download = Youtube_Content_Operations.Operations("youtube video download", youtube_link, selected_path)
     file_download_result = await file_download.Operation_Selection()
 
     message = file_download_result
@@ -54,35 +48,16 @@ async def Youtube_Conversion():
     gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages("video downloading warning")
     await gui.Graphical_User_Interface_Selector()
 
-    file_download = Youtube_Content_Operations.Operations("youtube video conversion", youtube_link, selected_path, None)
+    file_download = Youtube_Content_Operations.Operations("youtube video conversion", youtube_link, selected_path)
     file_download_result = await file_download.Operation_Selection()
 
     message = file_download_result
     await Message_Displayer(message)
 
 
-###############################################################
-# YOUTUBE VIDEO DOWNLOAD VIDEO RESOLUTION SELECTION INTERFACE #
-###############################################################
-async def Video_Resolution_Selection():
-    gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages("resolution selection menu")
-    selected_resolution = (await gui.Graphical_User_Interface_Selector()).lower()
-
-    if selected_resolution == "144p":
-        return selected_resolution
-    elif selected_resolution == "360p":
-        return selected_resolution
-    elif selected_resolution == "720p":
-        return selected_resolution
-    elif selected_resolution == "_back":
-        return selected_resolution
-    else:
-        await Video_Resolution_Selection()
-
-
-#######################################
-# YOUTUBE OPERTION FEEDBACK INTERFACE #
-#######################################
+########################################
+# YOUTUBE OPERATION FEEDBACK INTERFACE #
+########################################
 async def Message_Displayer(gui_message):
     try:
         selected_gui = None

@@ -19,8 +19,6 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             selected_input = await self.__Main_Menu()
         elif self.selected_graphical_user_interface == "link request menu":
             selected_input = await self.__Youtube_Video_Link_Request_Sub_Menu()
-        elif self.selected_graphical_user_interface == "resolution selection menu":
-            selected_input = await self.__Video_Resolution_Selection_Menu()
         elif self.selected_graphical_user_interface == "path selection menu":
             selected_input = await self.__Youtube_Video_Download_Path_Sub_Menu()
         elif self.selected_graphical_user_interface == "download successful":
@@ -187,28 +185,6 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
             print(
                 "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
             )
-
-            selected_input = input("\n\n[ _ ] Input: ")
-
-            return selected_input
-        except KeyboardInterrupt:
-            sys.exit(0)
-
-    async def __Video_Resolution_Selection_Menu(self):
-        try:
-            await self.__Clear_Screen()
-
-            print("||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]       SELECT THE VIDEO RESOLUTION      [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||")
-            print("[][]                                        [][]")
-            print("[][]         ['144p', '360p', '720p']       [][]")
-            print("[][]                                        [][]")
-            print("[][]                                        [][]")
-            print("[][]                                        [][]")
-            print("[][]  ENTER '_BACK' TO CANCEL THE DOWNLOAD  [][]")
-            print("[][]                                        [][]")
-            print("||||||||||||||||||||||||||||||||||||||||||||||||")
 
             selected_input = input("\n\n[ _ ] Input: ")
 

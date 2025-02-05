@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Y2F',
-    version='1.0.2',
+    version='1.0.4',
     packages=find_packages(),
     entry_points={
         'console_scripts': [
@@ -13,6 +13,6 @@ setup(
     author_email = 'teodormihail07@gmail.com',
     url = 'https://github.com/CSharpTeoMan911/Y2F', 
     install_requires=[
-        'pytube'
+        'pytubefix'
     ]
 )

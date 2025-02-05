@@ -6,33 +6,24 @@ import sys
 # CLASS THAT MANAGES YOUTUBE OPERATIONS #
 #########################################
 class Operations:
-    audio_only = False
     chosen_operation = None
     chosen_path = None
     youtube_link = None
-    selected_video_resolution = None
 
     def __init__(
             self,
             init_chosen_operation,
             init_youtube_link,
-            init_chosen_path,
-            init_selected_video_resolution,
+            init_chosen_path
     ):
         self.chosen_operation = init_chosen_operation
         self.chosen_path = init_chosen_path
         self.youtube_link = init_youtube_link
-        self.selected_video_resolution = init_selected_video_resolution
 
     #########################################################################
     # SELECTS THE YOUTUBE OPERATION ( MP4 TO MP3 DOWNLOAD OR MP4 DOWNLOAD ) #
     #########################################################################
     async def Operation_Selection(self):
-        if self.chosen_operation == "youtube video conversion":
-            self.audio_only = True
-        else:
-            self.audio_only = False
-
         download_result = await self.__Youtube_Download()
         return download_result
 
@@ -41,150 +32,32 @@ class Operations:
     #######################################################################################
     async def __Youtube_Download(self):
         try:
-            import pytube.exceptions
-            try:
-                try:
-                    try:
-                        try:
-                            try:
-                                try:
-                                    try:
-                                        try:
-                                            try:
-                                                try:
-                                                    try:
-                                                        try:
-                                                            try:
-                                                                try:
-                                                                    from pytube import (
-                                                                        YouTube,
-                                                                    )
+            from pytubefix import YouTube, exceptions
+            youtube_object = YouTube(
+                url=self.youtube_link, use_oauth=False,
+                allow_oauth_cache=False,
+                client="WEB",
+            )
 
-                                                                    youtube_object = YouTube(
-                                                                        self.youtube_link, use_oauth=False,
-                                                                        allow_oauth_cache=False
-                                                                    )
+            if self.chosen_operation == "youtube video conversion":
+                video_audio = youtube_object.streams.get_audio_only()
 
-                                                                    if (
-                                                                            self.selected_video_resolution
-                                                                            is None
-                                                                    ):
-                                                                        video_audio = youtube_object.streams.filter(
-                                                                            only_audio=self.audio_only
-                                                                        ).first()
+                audio_path = video_audio.download(output_path=self.chosen_path)
 
-                                                                        audio_path = video_audio.download(
-                                                                            max_retries=10,
-                                                                            output_path=self.chosen_path,
-                                                                        )
+                os.rename(
+                    audio_path,
+                    audio_path
+                    + ".mp3",
+                )
 
-                                                                        os.rename(
-                                                                            audio_path,
-                                                                            audio_path
-                                                                            + ".mp3",
-                                                                        )
+                return audio_path
 
-                                                                        return (
-                                                                            audio_path
-                                                                        )
-
-                                                                    else:
-                                                                        resolutions = []
-                                                                        available_resolutions = [
-                                                                            "144p",
-                                                                            "360p",
-                                                                            "720p",
-                                                                        ]
-
-                                                                        for (
-                                                                                stream
-                                                                        ) in youtube_object.streams.order_by(
-                                                                            "resolution"
-                                                                        ):
-                                                                            for (
-                                                                                    index
-                                                                            ) in range(
-                                                                                0,
-                                                                                len(
-                                                                                    available_resolutions
-                                                                                ),
-                                                                            ):
-                                                                                if (
-                                                                                        available_resolutions[
-                                                                                            index
-                                                                                        ]
-                                                                                        == stream.resolution
-                                                                                ):
-                                                                                    exist = resolutions.count(
-                                                                                        stream.resolution
-                                                                                    )
-                                                                                    if (
-                                                                                            exist
-                                                                                            == 0
-                                                                                    ):
-                                                                                        resolutions.append(
-                                                                                            stream.resolution
-                                                                                        )
-                                                                                    break
-
-                                                                        maximum_available_resolution = resolutions[
-                                                                            len(
-                                                                                resolutions
-                                                                            )
-                                                                            - 1
-                                                                            ]
-
-                                                                        try:
-                                                                            maximum_available_resolution = resolutions[
-                                                                                resolutions.index(
-                                                                                    self.selected_video_resolution
-                                                                                )
-                                                                            ]
-                                                                        except (
-                                                                                ValueError
-                                                                        ):
-                                                                            pass
-
-                                                                        video_audio = youtube_object.streams.filter(
-                                                                            only_audio=self.audio_only,
-                                                                            res=maximum_available_resolution,
-                                                                            progressive=True
-                                                                        ).first()
-
-                                                                        path = video_audio.download(
-                                                                            output_path=self.chosen_path,
-                                                                            max_retries=100,
-                                                                        )
-
-                                                                        return path
-
-                                                                except pytube.exceptions.RecordingUnavailable:
-                                                                    return "internal error"
-                                                            except pytube.exceptions.MembersOnly:
-                                                                return "internal error"
-                                                        except pytube.exceptions.MaxRetriesExceeded:
-                                                            return "internal error"
-                                                    except pytube.exceptions.LiveStreamError:
-                                                        return "internal error"
-                                                except pytube.exceptions.HTMLParseError:
-                                                    return "internal error"
-                                            except pytube.exceptions.AgeRestrictedError:
-                                                return "age restricted video"
-                                        except pytube.exceptions.VideoPrivate:
-                                            return "internal error"
-                                    except pytube.exceptions.ExtractError:
-                                        return "internal error"
-                                except pytube.exceptions.PytubeError:
-                                    return "internal error"
-                            except TypeError:
-                                return "internal error"
-                        except ValueError:
-                            return "internal error"
-                    except FileNotFoundError:
-                        return "wrong path"
-                except KeyboardInterrupt:
-                    sys.exit(0)
-            except pytube.exceptions.RegexMatchError:
-                return "wrong link"
-        except ModuleNotFoundError:
-            return "pytube missing"
+            else:
+                video = youtube_object.streams.get_highest_resolution(progressive=True)
+                path = video.download(output_path=self.chosen_path)
+                return path
+        except Exception as e:
+            if e == ModuleNotFoundError:
+                return "pytube missing"
+            else:
+                return "unknown error"
