@@ -60,23 +60,7 @@ async def Youtube_Conversion():
 ########################################
 async def Message_Displayer(gui_message):
     try:
-        selected_gui = None
-
-        if gui_message is not None:
-            if gui_message == "pytube missing":
-                selected_gui = "module not found"
-            elif gui_message == "wrong path":
-                selected_gui = "path not found"
-            elif gui_message == "internal error":
-                selected_gui = "unknown error"
-            elif gui_message == "wrong link":
-                selected_gui = "wrong link"
-            elif gui_message == "age restricted video":
-                selected_gui = "age restricted video"
-            else:
-                selected_gui = "download successful"
-
-        gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages(selected_gui)
+        gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages(gui_message)
         await gui.Graphical_User_Interface_Selector()
 
         gui = Graphical_User_Interface.Graphical_User_Interfaces_For_Menus_And_Messages("clear screen")

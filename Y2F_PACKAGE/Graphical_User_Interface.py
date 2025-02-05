@@ -12,7 +12,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
     def __init__(self, init_selected_graphical_user_interface):
         self.selected_graphical_user_interface = init_selected_graphical_user_interface
 
-    async def Graphical_User_Interface_Selector(self):
+    async def Graphical_User_Interface_Selector(self) -> str:
         selected_input = None
 
         if self.selected_graphical_user_interface == "main menu":
@@ -48,7 +48,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         else:
             os.system("clear")
 
-    async def __Main_Menu(self):
+    async def __Main_Menu(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -131,7 +131,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __Youtube_Video_Link_Request_Sub_Menu(self):
+    async def __Youtube_Video_Link_Request_Sub_Menu(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -151,7 +151,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __Youtube_Video_Download_Path_Sub_Menu(self):
+    async def __Youtube_Video_Download_Path_Sub_Menu(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -192,7 +192,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __Module_Not_Found_Error(self):
+    async def __Module_Not_Found_Error(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -218,7 +218,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __Path_Not_Found_Error(self):
+    async def __Path_Not_Found_Error(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -235,7 +235,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __Age_Restriction_Error(self):
+    async def __Age_Restriction_Error(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -252,7 +252,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __An_Unknown_Error_Occurred(self):
+    async def __An_Unknown_Error_Occurred(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -269,7 +269,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __Wrong_Link_Error_Occurred(self):
+    async def __Wrong_Link_Error_Occurred(self) -> str:
         try:
             await self.__Clear_Screen()
 
@@ -286,7 +286,7 @@ class Graphical_User_Interfaces_For_Menus_And_Messages:
         except KeyboardInterrupt:
             sys.exit(0)
 
-    async def __File_Successfully_Installed_Message(self):
+    async def __File_Successfully_Installed_Message(self) -> str:
         try:
             await self.__Clear_Screen()
 
